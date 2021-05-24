@@ -7,7 +7,9 @@ import webbrowser
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
 # print(voices)
-engine.setProperty("voices", voices[1].id)
+engine.setProperty("voice", voices[1].id)
+rate = engine.getProperty("rate")
+engine.setProperty("rate" , 135 )
 
 def speak(audio):
     engine.say(audio)
@@ -51,10 +53,9 @@ def googling(what_to_google):
 
 
 if __name__ == '__main__':
-    # speak("hello")
-    # print("voice is active test 1 pass-----------------------------------")
-    # wishme()
-    # print("wishme pass----------------------------------")
+    print("voice is active test 1 pass-----------------------------------")
+    wishme()
+    print("wishme pass----------------------------------")
     while True:
         user_words = take().lower()
         if "wikipedia" in user_words :
@@ -76,8 +77,12 @@ if __name__ == '__main__':
         elif "open instagram" in user_words:
                googling("instagram")
         
-        elif "open xhamster" in user_words:
+        elif "open fun" in user_words:
             googling("xhamster")
+
+        elif "shut down yourself" in user_words:
+            speak("ok i am shutting down sayonara")
+            break    
        
 
 
